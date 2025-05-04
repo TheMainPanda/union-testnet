@@ -78,8 +78,8 @@ rl.question('Select the network(s) to send transactions to (1: Sepolia, 2: Holes
                 };
 
                 if (network.name === 'Holesky Testnet') {
-                  tx.maxFeePerGas = web3.utils.toWei('0.002', 'gwei'); // Set max base fee to 0.002 Gwei
-                  tx.maxPriorityFeePerGas = web3.utils.toWei('0.002', 'gwei'); // Set priority fee to 0.002 Gwei
+                  tx.maxFeePerGas = web3.utils.toWei('0.2', 'gwei'); // Set max base fee to 0.2 Gwei
+                  tx.maxPriorityFeePerGas = web3.utils.toWei('0.2', 'gwei'); // Set priority fee to 0.2 Gwei
                 } else if (network.name === 'Sepolia') {
                   tx.maxFeePerGas = web3.utils.toWei('0.1', 'gwei'); // Increase max base fee to 0.1 Gwei
                   tx.maxPriorityFeePerGas = web3.utils.toWei('0.1', 'gwei'); // Increase priority fee to 0.1 Gwei
