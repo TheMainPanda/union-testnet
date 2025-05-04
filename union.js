@@ -73,7 +73,7 @@ rl.question('Select the network(s) to send transactions to (1: Sepolia, 2: Holes
                   to: network.address,
                   value: '0',
                   data: hexStrings[network.name],
-                  gas: 170000, // Set the gas limit to 170000
+                  gas: 300000, // Set the gas limit to 300000
                   nonce: nonces[network.name]++
                 };
 
