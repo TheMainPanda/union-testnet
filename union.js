@@ -10,19 +10,19 @@ const rl = readline.createInterface({
 // Network configurations
 const networks = {
   '1': {
-    name: 'Arbitrum Sepolia',
-    rpc: 'https://sepolia-rollup.arbitrum.io/rpc',
-    address: '0xBd346331b31f8C43CC378286Bfe49f2f7F128c39'
+    name: 'Sepolia',
+    rpc: 'https://ethereum-sepolia-rpc.publicnode.com/',
+    address: '0x5fbe74a283f7954f10aa04c2edf55578811aeb03'
   },
   '2': {
-    name: 'Berachain bArtion Testnet',
-    rpc: 'https://bartio.rpc.berachain.com/',
-    address: '0x6F270608fB562133777AF0f71F6386ffc1737C30'
+    name: 'Holesky Testnet',
+    rpc: 'https://ethereum-holesky-rpc.publicnode.com/',
+    address: '0x5fbe74a283f7954f10aa04c2edf55578811aeb03'
   }
 };
 
 // Prompt user for network selection
-rl.question('Select the network(s) to send transactions to (1: Arbitrum Sepolia, 2: Berachain bArtion Testnet, 3: All): ', (networkSelection) => {
+rl.question('Select the network(s) to send transactions to (1: Sepolia, 2: Holesky Testnet, 3: All): ', (networkSelection) => {
   const selectedNetworks = networkSelection.split(',').map(choice => choice.trim());
   const prompts = [];
 
@@ -77,10 +77,10 @@ rl.question('Select the network(s) to send transactions to (1: Arbitrum Sepolia,
                   nonce: nonces[network.name]++
                 };
 
-                if (network.name === 'Berachain bArtion Testnet') {
+                if (network.name === 'Holesky Testnet') {
                   tx.maxFeePerGas = web3.utils.toWei('0.002', 'gwei'); // Set max base fee to 0.002 Gwei
                   tx.maxPriorityFeePerGas = web3.utils.toWei('0.002', 'gwei'); // Set priority fee to 0.002 Gwei
-                } else if (network.name === 'Arbitrum Sepolia') {
+                } else if (network.name === 'Sepolia') {
                   tx.maxFeePerGas = web3.utils.toWei('0.1', 'gwei'); // Increase max base fee to 0.1 Gwei
                   tx.maxPriorityFeePerGas = web3.utils.toWei('0.1', 'gwei'); // Increase priority fee to 0.1 Gwei
                 } else {
